@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KensakuPlugin.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="キーワード前" Type="System.String" Scope="User">
+      <Value Profile="(Default)">検索</Value>
+    </Setting>
+    <Setting Name="キーワード後" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="お天気前" Type="System.String" Scope="User">
+      <Value Profile="(Default)">天気</Value>
+    </Setting>
+    <Setting Name="お天気中" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="お天気後" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="キーワード検索に失敗" Type="System.String" Scope="User">
+      <Value Profile="(Default)">データがありません</Value>
+    </Setting>
+    <Setting Name="同一IDでの検索間隔" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="地域名不正" Type="System.String" Scope="User">
+      <Value Profile="(Default)">地域名が不正です</Value>
+    </Setting>
+    <Setting Name="予報日不正" Type="System.String" Scope="User">
+      <Value Profile="(Default)">予報日が不正です</Value>
+    </Setting>
+    <Setting Name="成功時接尾語" Type="System.String" Scope="User">
+      <Value Profile="(Default)">です</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

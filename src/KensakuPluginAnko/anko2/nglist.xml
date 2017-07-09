@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nglist comment="やります！アンコちゃん!">
+  <ngitem is_regex="True" status="True">
+    <old>([死しシ])\s?([ぬヌねネ])</old>
+    <new>$1/$2</new>
+  </ngitem>
+  <ngitem is_regex="True" status="True">
+    <old>([かカ])\s?([すス])</old>
+    <new>$1/$2</new>
+  </ngitem>
+</nglist>
