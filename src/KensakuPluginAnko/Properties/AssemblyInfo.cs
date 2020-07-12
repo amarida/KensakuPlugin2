@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("KensakuPlugin for anko2")]
-[assembly: AssemblyCopyright("Copyright © Tekinama 2016")]
+[assembly: AssemblyCopyright("Copyright © Tekinama 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.1.1.23")]
-[assembly: AssemblyFileVersion("0.1.1.23")]
+[assembly: AssemblyVersion("0.1.2.24")]
+[assembly: AssemblyFileVersion("0.1.2.24")]

@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NUnit.Framework;
+//using NUnit.Framework;
 
-using nwhois.plugin;
+//using nwhois.plugin;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using Microsoft.VisualBasic;
 using System.Threading;
 
-using NicoApi;
+//using NicoApi;
 
 namespace Tekidoni
 {
+#if false
 	[TestFixture]
 	public class ProgramTest
 	{
@@ -331,4 +332,5 @@ namespace Tekidoni
 			return output;
 		}
 	}
+#endif
 }

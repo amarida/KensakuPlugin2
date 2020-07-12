@@ -89,7 +89,7 @@ namespace Tekidoni
 						else
 						{
 							Utility.PostMessage(host,
-								string.Format(">>{0}番さんが次に検索できるのは、あと{1}秒後です<br />(同一IDでの検索は{2}秒間空けてください)", chat.No, timeLeft, form.WaitTime));
+								string.Format(">>{0}番さんが次に検索できるのは、あと{1}秒後です(同一IDでの検索は{2}秒間空けてください)", chat.No, timeLeft, form.WaitTime));
 						}
 					}
 					return;

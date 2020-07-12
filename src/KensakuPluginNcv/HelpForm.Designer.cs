@@ -81,10 +81,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Font = new System.Drawing.Font("HG正楷書体-PRO", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label3.Location = new System.Drawing.Point(27, 113);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 68);
+            this.label3.Size = new System.Drawing.Size(83, 76);
             this.label3.TabIndex = 3;
             this.label3.Text = "適度\r\nに。";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -112,7 +112,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(226, 18);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Copyright (C) 2011-2013 Tekidoni";
+            this.label5.Text = "Copyright (C) 2011-2020 Tekidoni";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
@@ -125,7 +125,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 20);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Ver. 0.1.1.22";
+            this.label6.Text = "Ver. 0.1.2.24";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // HelpForm

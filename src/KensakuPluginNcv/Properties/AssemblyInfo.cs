@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Tekidoni")]
 [assembly: AssemblyProduct("KensakuPlugin for NCV")]
-[assembly: AssemblyCopyright("Copyright © 2011 - 2013")]
+[assembly: AssemblyCopyright("Copyright © 2011 - 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 // すべての値を指定するか、下のように '*' を使ってビルドおよびリビジョン番号を 
 // 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.1.22")]
-[assembly: AssemblyFileVersion("0.1.1.22")]
+[assembly: AssemblyVersion("0.1.2.24")]
+[assembly: AssemblyFileVersion("0.1.2.24")]
 
 [assembly: InternalsVisibleTo("KensakuPluginTest")]

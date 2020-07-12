@@ -153,11 +153,11 @@ namespace Tekidoni
 		/// <returns></returns>
 		internal string GetKeywordSearchMsg(string keyword, string notFoundMsg, string successSuffixMsg)
 		{
-			HatenaKeyword hateKey = new HatenaKeyword();
+			var wikiApi = new WikipediaApi();
 			string result;
 			try
 			{
-				result = hateKey.SearchHatenaKeyword(keyword);
+				result = wikiApi.SearchKeyword(keyword);
 				result = result.Substring(0, (result.IndexOf("。") == -1) ? result.Length : result.IndexOf("。"));
 				//return string.Format("「{0}」のことだよー", result.TrimStart());
 				return string.Format("「{0}」{1}", result.TrimStart(), successSuffixMsg);

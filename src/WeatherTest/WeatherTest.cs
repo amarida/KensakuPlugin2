@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using NUnit.Framework;
+//using NUnit.Framework;
 using System.Net;
 using System.IO;
 using System.Runtime.Serialization;
@@ -10,6 +10,7 @@ using Codeplex.Data;
 
 namespace Tekidoni
 {
+#if false
     [DataContract]
     public class FriendInfo
     {
@@ -97,4 +98,5 @@ namespace Tekidoni
 			Assert.AreEqual(code1, code2);
 		}
 	}
+#endif
 }

@@ -121,6 +121,7 @@ namespace Tekidoni
 		/// <returns></returns>
 		internal string GetKeywordSearchMsg(string keyword, string notFoundMsg, string successSuffixMsg)
 		{
+#if false
 			HatenaKeyword hateKey = new HatenaKeyword();
 			string result;
 			try
@@ -139,6 +140,9 @@ namespace Tekidoni
 			{
 				return string.Format("予期しないエラーが発生しました（{0}）", e.Message);
 			}
+#else
+			return "";
+#endif
 		}
 
 		/// <summary>

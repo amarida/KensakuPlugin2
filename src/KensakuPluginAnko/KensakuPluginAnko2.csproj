@@ -66,6 +66,9 @@
     <Compile Include="..\HatenaKeyword\HatenaKeyword.cs">
       <Link>HatenaKeyword.cs</Link>
     </Compile>
+    <Compile Include="..\HatenaKeyword\WikipediaApi.cs">
+      <Link>WikipediaApi.cs</Link>
+    </Compile>
     <Compile Include="..\Weather\DynamicJson.cs">
       <Link>DynamicJson.cs</Link>
     </Compile>

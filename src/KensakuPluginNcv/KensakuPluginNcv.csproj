@@ -72,6 +72,9 @@
   <ItemGroup>
     <Compile Include="..\HatenaKeyword\HatenaException.cs" />
     <Compile Include="..\HatenaKeyword\HatenaKeyword.cs" />
+    <Compile Include="..\HatenaKeyword\WikipediaApi.cs">
+      <Link>WikipediaApi.cs</Link>
+    </Compile>
     <Compile Include="..\Weather\DynamicJson.cs">
       <Link>DynamicJson.cs</Link>
     </Compile>

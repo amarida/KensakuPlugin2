@@ -492,11 +492,11 @@ namespace Tekidoni
         /// <returns></returns>
         internal string GetKeywordSearchMsg(string keyword, string notFoundMsg, string successSuffixMsg)
         {
-            HatenaKeyword hateKey = new HatenaKeyword();
+            var wikiApi = new WikipediaApi();
             string result;
             try
             {
-                result = hateKey.SearchHatenaKeyword(keyword);
+                result = wikiApi.SearchKeyword(keyword);
                 result = result.Substring(0, (result.IndexOf("。") == -1) ? result.Length : result.IndexOf("。"));
                 //return string.Format("「{0}」のことだよー", result.TrimStart());
                 return string.Format("「{0}」{1}", result.TrimStart(), successSuffixMsg);
@@ -540,7 +540,7 @@ namespace Tekidoni
                         else
                         {
                             Utility.PostMessage(_host,
-                                string.Format(">>{0}番さんが次に検索できるのは、あと{1}秒後です<br />(同一IDでの検索は{2}秒間空けてください)", e.Chat.No, timeLeft, waitTime));
+                                string.Format(">>{0}番さんが次に検索できるのは、あと{1}秒後です(同一IDでの検索は{2}秒間空けてください)", e.Chat.No, timeLeft, waitTime));
                         }
                     }
                     return;
@@ -567,7 +567,7 @@ namespace Tekidoni
                         else
                         {
                             Utility.PostMessage(_host,
-                                string.Format(">>{0}番さんが次に検索できるのは、あと{1}秒後です<br />(同一IDでの検索は{2}秒間空けてください)", e.Chat.No, timeLeft, waitTime));
+                                string.Format(">>{0}番さんが次に検索できるのは、あと{1}秒後です(同一IDでの検索は{2}秒間空けてください)", e.Chat.No, timeLeft, waitTime));
                         }
                     }
                     return;

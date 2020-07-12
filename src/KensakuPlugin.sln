@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KensakuPlugin", "KensakuPlugin\KensakuPlugin.csproj", "{C7934069-34A3-4040-B72F-92F6695F559F}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KensakuPluginNcv", "KensakuPluginNcv\KensakuPluginNcv.csproj", "{9514CA4C-A3EA-424C-828D-A596F85A8043}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KensakuPluginAnko2", "KensakuPluginAnko\KensakuPluginAnko2.csproj", "{8737A2DA-D09B-4996-B08E-24A9D921AF73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleMainForm", "SampleMainForm\SampleMainForm.csproj", "{B86EDB6F-AE8B-48A0-B354-248DFE8C8E66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,8 +59,15 @@ Global
 		{8737A2DA-D09B-4996-B08E-24A9D921AF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8737A2DA-D09B-4996-B08E-24A9D921AF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8737A2DA-D09B-4996-B08E-24A9D921AF73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B86EDB6F-AE8B-48A0-B354-248DFE8C8E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B86EDB6F-AE8B-48A0-B354-248DFE8C8E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B86EDB6F-AE8B-48A0-B354-248DFE8C8E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B86EDB6F-AE8B-48A0-B354-248DFE8C8E66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6395A8BA-1C01-408D-8EFA-5E9B39C9DBD1}
 	EndGlobalSection
 EndGlobal

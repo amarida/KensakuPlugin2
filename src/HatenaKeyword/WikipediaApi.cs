@@ -1,7 +1,4 @@
-﻿#if false
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using System.Net;
 using System.IO;
@@ -9,11 +6,11 @@ using System.Xml;
 
 namespace Tekidoni
 {
-	public class HatenaKeyword
+	public class WikipediaApi
 	{
-		public string SearchHatenaKeyword(string keyword)
+		public string SearchKeyword(string keyword)
 		{
-			string url = string.Format("http://d.hatena.ne.jp/keyword?word={0}&mode=rss&ie=utf8", keyword);
+			string url = string.Format("http://wikipedia.simpleapi.net/api?keyword={0}&output=xml", keyword);
 			HttpWebRequest webReq = (HttpWebRequest)WebRequest.Create(url);
 			using (HttpWebResponse webRes = (HttpWebResponse)webReq.GetResponse())
 			{
@@ -23,16 +20,18 @@ namespace Tekidoni
 					string str = reader.ReadToEnd();
 					XmlDocument xdoc = new System.Xml.XmlDocument();
 					xdoc.LoadXml(str);
-					XmlNode root = xdoc["rdf:RDF"];
-					System.Xml.XmlNode item = root["item"];
-					if (item == null)
+					var results = xdoc["results"];
+					var result = results["result"];
+					if (result == null)
 					{
 						throw new NotFoundException();
 					}
-					return item["description"].InnerText;
+					var body = result["body"];
+
+					return body.InnerText;
+//					return "";
 				}
 			}
 		}
 	}
 }
-#endif

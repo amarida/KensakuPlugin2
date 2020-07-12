@@ -16,19 +16,19 @@ namespace Tekidoni
 		/// <returns></returns>
 		internal static string InsertBr(string str)
 		{
-			if (str.Length > 75)
+			if (str.Length > 69)
 			{
-				str = str.Substring(0, 75);
+				str = str.Substring(0, 69);
 				str += "(ry";
 			}
-			if (str.Length > 50)
-			{
-				str = str.Insert(50, "<br />");
-			}
-			if (str.Length > 25)
-			{
-				str = str.Insert(25, "<br />");
-			}
+			//if (str.Length > 50)
+			//{
+			//	str = str.Insert(50, "<br />");
+			//}
+			//if (str.Length > 25)
+			//{
+			//	str = str.Insert(25, "<br />");
+			//}
 			return str;
 		}
 
