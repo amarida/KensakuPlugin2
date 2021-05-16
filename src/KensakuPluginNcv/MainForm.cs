@@ -151,7 +151,7 @@ namespace Tekidoni
 		private void UpdateForm()
 		{
 			// キーワードサンプル
-			keywordSampleTextBox.Text = keywordPrefixTextBox.Text + "「hoge」" + keywordSuffixTextBox.Text;
+			keywordSampleTextBox.Text = keywordPrefixTextBox.Text + "「ニコニコ動画」" + keywordSuffixTextBox.Text;
 			// お天気検索サンプル
 			weatherSampleTextBox.Text = weatherPrefixTextBox.Text + "「東京」" + weatherMiddleComboBox.Text + "「明日」" + weatherSuffixTextBox.Text;
 		}

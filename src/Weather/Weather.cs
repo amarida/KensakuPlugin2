@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Xml;
 using System.Xml.Serialization;
 using Codeplex.Data;
+using Newtonsoft.Json.Linq;
 
 namespace Tekidoni
 {
@@ -18,7 +19,77 @@ namespace Tekidoni
 		{
 			Console.WriteLine("Invalid XSD schema: " + args.Exception.Message);
 		}
-		
+		public string GetWeather(string cityName, string japaneseDay)
+		{
+			int cityCode = WeatherUtility.ConvertCityNameToCode(cityName);
+			int day = WeatherUtility.ConvertNihongoToDay(japaneseDay);
+			// 0:今日、1:明日、2:明後日
+			string API_KEY = "955dd8ef2471eafbf608090d4b972f8a";
+			string BASE_URL = "http://api.openweathermap.org/data/2.5/forecast";
+
+			var date = DateTime.Now;
+			var date_ = string.Format("{0}-{1:00}-{2:00} {3:00}:{4:00}:{5:00}", date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
+
+			int day_n = day; // 0:今日、1:明日、2:明後日
+
+			bool isToday = false;
+			switch (day_n)
+			{
+				case 0:
+					// 今日
+					isToday = true;
+					break;
+				case 1:
+					// 明日の12時
+					date = date.AddDays(1);
+					date_ = string.Format("{0}-{1:00}-{2:00} 12:00:00", date.Year, date.Month, date.Day);
+					break;
+				case 2:
+					// 明後日の12時
+					date = date.AddDays(2);
+					date_ = string.Format("{0}-{1:00}-{2:00} 12:00:00", date.Year, date.Month, date.Day);
+					break;
+
+			}
+
+			//string url = string.Format("{0}?q=Akashi&lang=ja&APPID={1}", BASE_URL, API_KEY);
+			//string url = string.Format("{0}?q=Akashi&APPID={1}", BASE_URL, API_KEY);
+			string url = string.Format("{0}?id={1}&APPID={2}", BASE_URL, cityCode, API_KEY);
+			HttpWebRequest webReq = (HttpWebRequest)WebRequest.Create(url);
+			string retValue = string.Empty;
+			using (HttpWebResponse webRes = (HttpWebResponse)webReq.GetResponse())
+			{
+				Stream stream = webRes.GetResponseStream();
+				using (StreamReader reader = new StreamReader(stream))
+				{
+					string str = reader.ReadToEnd();
+					var obj = JObject.Parse(str);
+
+					if (isToday)
+					{
+						retValue = obj["list"][3]["weather"][0]["description"].ToString();
+					}
+					else
+					{
+						foreach (var data in obj["list"])
+						{
+							//if (data["dt_txt"].ToString() == "2020-09-20 18:00:00")
+							if (data["dt_txt"].ToString() == date_)
+							{
+								retValue = data["weather"][0]["description"].ToString();
+								break;
+							}
+						}
+					}
+					//var ret = obj["list"][0]["weather"][0]["description"].ToString();
+				}
+			}
+			retValue = WeatherUtility.ConvertEngToJpn(retValue);
+
+			return retValue;
+		}
+
+#if false
 		/// <summary>
 		/// 指定地域の天気を返す
 		/// </summary>
@@ -73,5 +144,6 @@ namespace Tekidoni
 				//}
 			}
 		}
+#endif
 	}
 }

@@ -2,7 +2,7 @@
 
 【 ソフト名 】けんさくさん for anko2
 【 製 作 者 】でんでん。
-【バージョン】0.1.2.24
+【バージョン】0.1.3.25
 【ファイル名】KensakuPlugin_for_anko2.dll
 【 ウ ェ ブ 】http://com.nicovideo.jp/community/co67422
 【 E - mail 】tekidoni@live.jp
@@ -51,3 +51,4 @@
 ● バージョン履歴
   - 2016/06/05  Ver. 0.1.1.23　anko2版公開
   - 2020/07/19  Ver. 0.1.2.24　キーワード検索の不具合に対応
+  - 2020/09/22  Ver. 0.1.3.25　天気予報API変更
