@@ -54,5 +54,14 @@ namespace Tekidoni
 			}
 			Utility.PostMessageOwner(host, message, name, command);
 		}
-	}
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+			if (messageTextBox.Text == string.Empty)
+			{
+				return;
+			}
+			Utility.PostMessageNormal(host, messageTextBox.Text);
+		}
+    }
 }

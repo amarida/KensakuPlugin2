@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -24,8 +25,29 @@ namespace SampleMainForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-			var ret = SearchKeyword(textBox1.Text);
-        }
+			//var ret = SearchKeyword(textBox1.Text);
+			var ret = SearchKeyword2(textBox1.Text);
+		}
+		public string SearchKeyword2(string keyword)
+		{
+			string url = string.Format("http://api.excelapi.org/language/wikipedia_summary?word={0}", keyword);
+			HttpWebRequest webReq = (HttpWebRequest)WebRequest.Create(url);
+			using (HttpWebResponse webRes = (HttpWebResponse)webReq.GetResponse())
+			{
+				Stream stream = webRes.GetResponseStream();
+				using (StreamReader reader = new StreamReader(stream))
+				{
+					string str = reader.ReadToEnd();
+					if (str == string.Empty)
+					{
+						throw new Exception();
+					}
+					MessageBox.Show(str);
+
+					return "";
+				}
+			}
+		}
 
 		public string SearchKeyword(string keyword)
 		{
@@ -51,7 +73,10 @@ namespace SampleMainForm
 			}
 		}
 #else
-			string url = string.Format("http://wikipedia.simpleapi.net/api?keyword={0}&output=xml", keyword);
+			// http://api.excelapi.org/language/wikipedia_summary?word=%E5%8E%9F%E5%B4%8E
+			//string url = string.Format("http://wikipedia.simpleapi.net/api?keyword={0}&output=xml", keyword);
+			string url = string.Format("https://ja.wikipedia.org/w/api.php?format=xml&action=query&prop=revisions&rvprop=content&titles={0}", keyword);
+			//string url = string.Format("http://api.excelapi.org/language/wikipedia_summary?word={0}", keyword);
 			HttpWebRequest webReq = (HttpWebRequest)WebRequest.Create(url);
 			using (HttpWebResponse webRes = (HttpWebResponse)webReq.GetResponse())
 			{
@@ -61,13 +86,34 @@ namespace SampleMainForm
 					string str = reader.ReadToEnd();
 					XmlDocument xdoc = new System.Xml.XmlDocument();
 					xdoc.LoadXml(str);
-					var results = xdoc["results"];
-					var result = results["result"];
+					//var results = xdoc["results"];
+					//var result = results["result"];
+					var result = xdoc["api"]["query"]["pages"]["page"]["revisions"]["rev"];
+					//var result = results["rev"];
 					if (result == null)
 					{
 						throw new Exception();
 					}
-					var body = result["body"];
+					//var body = result["body"];
+
+					var ret = result.InnerText;
+
+
+					var test = ret.Substring(0, (ret.IndexOf("。") == -1) ? ret.Length : ret.IndexOf("。"));
+					var test2 =  test.TrimStart();
+
+					string test3 = Regex.Replace(test2, "'''", "", RegexOptions.IgnoreCase);
+					test3 = Regex.Replace(test3, "（.*?）", "", RegexOptions.IgnoreCase);
+					//Regex r = new Regex(@"\[\[.*?\|(?<msg>.*?)\]\]", RegexOptions.IgnoreCase);
+					Regex r = new Regex(@"\[\[[^\[\[\]\]]*\]\]", RegexOptions.IgnoreCase);
+					Match m = r.Match(test3);
+					while (m.Success)
+					{
+						var re = m.Groups["msg"].Value;
+						//test3 = Regex.Replace(test3, @"\[\[.*?\|.*?\]\]", re, RegexOptions.IgnoreCase);
+
+						m.NextMatch();
+					}
 
 					return "";
 				}
@@ -80,9 +126,13 @@ namespace SampleMainForm
 			string ret = SearchWeather(string.Empty, string.Empty);
 		}
 
-		public string SearchWeather(string city, string day)
+		public string SearchWeather(string cityName, string japaneseDay)
         {
-			city = "1859171";
+			//city = "1859171";
+			cityName = "東京";
+			japaneseDay = "今日";
+			int cityCode = WeatherUtility.ConvertCityNameToCode(cityName);
+			int day = WeatherUtility.ConvertNihongoToDay(japaneseDay);
 
 			string API_KEY = "955dd8ef2471eafbf608090d4b972f8a";
 			string BASE_URL = "http://api.openweathermap.org/data/2.5/forecast";
@@ -90,10 +140,10 @@ namespace SampleMainForm
 			var date = DateTime.Now;
 			var date_ = string.Format("{0}-{1:00}-{2:00} {3:00}:{4:00}:{5:00}", date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
 
-			int day_n = 0; // 0:今日、1:明日、2:明後日
+			int day_n = day; // 0:今日、1:明日、2:明後日
 
 			bool isToday = false;
-			switch(day_n)
+			switch (day_n)
 			{
 				case 0:
 					// 今日
@@ -114,7 +164,7 @@ namespace SampleMainForm
 
 			//string url = string.Format("{0}?q=Akashi&lang=ja&APPID={1}", BASE_URL, API_KEY);
 			//string url = string.Format("{0}?q=Akashi&APPID={1}", BASE_URL, API_KEY);
-			string url = string.Format("{0}?id={1}&APPID={2}", BASE_URL, city, API_KEY);
+			string url = string.Format("{0}?id={1}&APPID={2}", BASE_URL, cityCode, API_KEY);
 			HttpWebRequest webReq = (HttpWebRequest)WebRequest.Create(url);
 			string retValue = string.Empty;
 			using (HttpWebResponse webRes = (HttpWebResponse)webReq.GetResponse())

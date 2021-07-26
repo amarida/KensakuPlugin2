@@ -46,14 +46,14 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NicoLibrary, Version=1.0.4831.41736, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="NicoLibrary, Version=1.0.7852.42409, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\NicoLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin, Version=1.0.4831.41738, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="Plugin, Version=1.0.7852.42410, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Plugin.dll</HintPath>
     </Reference>

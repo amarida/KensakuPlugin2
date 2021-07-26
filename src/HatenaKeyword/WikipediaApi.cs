@@ -10,7 +10,7 @@ namespace Tekidoni
 	{
 		public string SearchKeyword(string keyword)
 		{
-			string url = string.Format("http://wikipedia.simpleapi.net/api?keyword={0}&output=xml", keyword);
+			string url = string.Format("http://api.excelapi.org/language/wikipedia_summary?word={0}", keyword);
 			HttpWebRequest webReq = (HttpWebRequest)WebRequest.Create(url);
 			using (HttpWebResponse webRes = (HttpWebResponse)webReq.GetResponse())
 			{
@@ -18,18 +18,11 @@ namespace Tekidoni
 				using (StreamReader reader = new StreamReader(stream))
 				{
 					string str = reader.ReadToEnd();
-					XmlDocument xdoc = new System.Xml.XmlDocument();
-					xdoc.LoadXml(str);
-					var results = xdoc["results"];
-					var result = results["result"];
-					if (result == null)
-					{
+					if(str == string.Empty)
+                    {
 						throw new NotFoundException();
-					}
-					var body = result["body"];
-
-					return body.InnerText;
-//					return "";
+                    }
+					return str;
 				}
 			}
 		}

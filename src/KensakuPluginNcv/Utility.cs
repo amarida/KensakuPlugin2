@@ -92,6 +92,27 @@ namespace Tekidoni
 			}
 			Logger.write("End");
 		}
+		internal static void PostMessageNormal(IPluginHost host, string message)
+		{
+			Logger.write("Begin");
+			Logger.write(message);
+			try
+			{
+				if (host != null && host.IsConnected)
+				{
+					host.SendComment(message);
+				}
+				else
+				{
+					string errmsg = (host == null) ? "host == null" : "host.CanPostMessage == false";
+					Logger.write("PostMessageOwner(" + message + ") - " + errmsg);
+				}
+			}
+			finally
+			{
+			}
+			Logger.write("End");
+		}
 
 		/// <summary>
 		/// 運営ＮＧコメントかどうか

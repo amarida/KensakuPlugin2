@@ -126,21 +126,25 @@ namespace Tekidoni
 			try
 			{
 				result = weathr.GetWeather(city, day);
+				Logger.write(string.Format("weather result = ({0})", result));
 				//return string.Format("「{0}」だよー", result);
 				return string.Format("「{0}」{1}", result, successSuffixMsg);
 			}
 			catch (CityException)
 			{
+				Logger.write("CityException");
 				//return string.Format("「{0}」っていう地域名が分からないよー＞＜", city);
 				return string.Format(notCityMsg);
 			}
 			catch (DayException)
 			{
+				Logger.write("DayException");
 				//return string.Format("予報日指定がおかしいよー＞＜");
 				return string.Format(notDayMsg);
 			}
 			catch (Exception e)
 			{
+				Logger.write(e.Message);
 				return string.Format("予期しないエラーが発生しました（{0}）", e.Message);
 			}
 		}
